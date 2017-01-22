@@ -51,7 +51,7 @@ apply plugin: 'com.comsince.publisher'
 + `bintray.userOrg=`  新版的jcenter,需要提供你创建的组织名称，不然无法上传成功 
 
 
-** NOTE:** 有关JCenter申请可[参考](register_jcenter.md)
+**NOTE:** 有关JCenter申请可[参考](register_jcenter.md)
 
 ### 1.2.2 gradle.properties 文件中配置发布信息<a name="jcenter_group_setting"/>
 
