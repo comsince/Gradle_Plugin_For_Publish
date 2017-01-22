@@ -1,0 +1,3 @@
+include ':pushlierlibraydemo'
+include(':publish-plugin')
+project(':publish-plugin').projectDir = new File(settingsDir, 'plugin')

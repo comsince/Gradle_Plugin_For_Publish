@@ -1,0 +1,29 @@
+buildscript {
+    if (new File("${rootProject.rootDir}", "local.properties").exists()) {
+        Properties localProp = new Properties()
+        localProp.load(project.rootProject.file('local.properties').newDataInputStream())
+
+        rootProject.ext {
+            bintray_user = localProp.get("bintray.user")
+            bintray_apikey = localProp.get("bintray.apikey")
+            bintray_repo = localProp.get("bintray.repo")
+            bintray_packageName = localProp.get("bintray.packageName")
+            bintray_userOrg = localProp.get("bintray.userOrg")
+
+        }
+    }
+    repositories {
+        jcenter()
+    }
+
+    configurations.classpath {
+        resolutionStrategy {
+            cacheDynamicVersionsFor 0, 'seconds'
+            cacheChangingModulesFor 0, 'seconds'
+        }
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.4'
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:3.1.1"
+    }
+}
