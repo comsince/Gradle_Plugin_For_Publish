@@ -1,8 +1,5 @@
 package com.comsince.tools.build.gradle.file;
 
-/**
- * Created by liaojinlong on 17-1-20.
- */
 import org.gradle.api.internal.file.CopyActionProcessingStreamAction;
 import org.gradle.api.internal.file.copy.CopyAction;
 import org.gradle.api.internal.file.copy.CopyActionProcessingStream;
