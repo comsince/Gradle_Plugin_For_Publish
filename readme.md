@@ -96,7 +96,7 @@ local.properties文件应该在.gitignore中屏蔽掉, 此文件仅用于本地�
 + `bintray.user=comsince`  # 你的bintray 用户名
 + `bintray.apikey=your api key` # 你的bintray api key
 + `bintray.repo=` #  你创建的bintray repo名称
-+ `bintray.packageName=` 你所要发布的库的名称
++ `bintray.name=` 你所要发布的库的名称
 + `bintray.userOrg=`  新版的jcenter,需要提供你创建的组织名称，不然无法上传成功 
 +  `bintray.vcsUrl=`  你开源的项目地址
 
