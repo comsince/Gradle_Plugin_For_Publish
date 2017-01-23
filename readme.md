@@ -22,7 +22,7 @@ buildscript {
     
     dependencies {
         classpath "com.android.tools.build:gradle:1.3.1"
-        classpath "com.comsince.github:publish-plugin:1.0.0"
+        classpath "com.comsince.github:publish-plugin:1.0"
         classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.4"
     }
 }
