@@ -147,6 +147,14 @@ local.properties文件应该在.gitignore中屏蔽掉, 此文件仅用于本地�
   
 * [sonatype.org](https://issues.sonatype.org/secure/Dashboard.jspa)注册账户
 * 新建一个MavenCentral的issue,大概要等待一周的审核时间
+  Create a Sonatype account for Maven Central,注意填写如下信息
+  * ```Project```: Community Support - Open Source Project Repository Hosting
+  * ```Issue Type```: New Project
+  * ```Summary```: Your library's name in summary, for example, The Cheese Library
+  * ```Group Id```: Put the root GROUP_ID, for example, com.inthecheeselibrary . After you got an approval, every single library starts with com.inthecheeselibrary will be allowed to upload to repository, for example, com.inthecheeselibrary.somelib
+  * ```Project URL```: Put a URL of any library you plan to distribute, for example, https://github.com/nuuneoi/FBLikeAndroid
+  * ```SCM URL```: URL of Source Control, for example, https://github.com/nuuneoi/FBLikeAndroid.git
+  
 * GPG 公钥和私钥申请配置
    * [GPG入门教程](http://www.ruanyifeng.com/blog/2013/07/gpg.html)
    * [GPG 使用说明](http://central.sonatype.org/pages/working-with-pgp-signatures.html)
