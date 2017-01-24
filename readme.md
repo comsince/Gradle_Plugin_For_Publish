@@ -143,14 +143,14 @@ local.properties文件应该在.gitignore中屏蔽掉, 此文件仅用于本地�
 * [Publish AAR to jCenter and Maven Central](https://gist.github.com/lopspower/6f62fe1492726d848d6d)
 
 # 五 同步更新到MavenCentral
-  插件支持自动同步到MavenCentral，需要你按照如下步骤操作
+**NOTE:**插件支持自动同步到MavenCentral，需要你按照如下步骤操作
+  
 * [sonatype.org](https://issues.sonatype.org/secure/Dashboard.jspa)注册账户
 * 新建一个MavenCentral的issue,大概要等待一周的审核时间
 * GPG 公钥和私钥申请配置
    * [GPG入门教程](http://www.ruanyifeng.com/blog/2013/07/gpg.html)
    * [GPG 使用说明](http://central.sonatype.org/pages/working-with-pgp-signatures.html)
 * [Jcenter MavenCentral同步配置](https://inthecheesefactory.com/blog/how-to-upload-library-to-jcenter-maven-central-as-dependency/en)
-
 * local.properties 配置相关的信息如下:
     + `bintray.gpg.password` [详情参看](https://github.com/bintray/gradle-bintray-plugin#buildgradle)
     + `oss_user`
