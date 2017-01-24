@@ -86,12 +86,12 @@ public abstract class BasePlugin implements Plugin<Project> {
     def configProguard(Project project) {
         project.android.buildTypes.all { buildtype ->
             logger.quiet "* configureProguard buildtype name ${buildtype.name} ${buildtype.minifyEnabled}"
-            if (buildtype.minifyEnabled) {
+            /*if (buildtype.minifyEnabled) {
                 project.configurations.proguard.each { File file ->
                     logger.quiet "* ${buildtype.name} proguardFile ${file.name}"
                     buildtype.proguardFile file
                 }
-            }
+            }*/
 
             if(project.plugins.findPlugin('android-library') != null &&buildtype.minifyEnabled && buildtype.name == "release" && !buildtype.consumerProguardFiles){
                 throw new Exception("** If your library requires release build type config minifyEnable true, define the rules \n" +

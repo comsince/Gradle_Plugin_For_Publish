@@ -37,7 +37,18 @@ class Constants {
     static final String BINTRAY_NAME = "bintray.name";
     static final String BINTRAY_USER_ORG = "bintray.userOrg";
     static final String BINTRAY_VCS_URL = "bintray.vcsUrl";
+    static final String BINTRAY_GPG_PASSWORD = "bintray.gpg.password";
+
+    static final String OSS_USER = "oss_user";
+    static final String OSS_PASSWORD = "oss_password";
+
+    static final String GROUP_VERIFICATION = 'verification';
 
 
-    static final String GROUP_VERIFICATION = 'verification'
+    // for generate maven pom info
+    static final String DEVELOPER_ID = "developer_id";
+    static final String DEVELOPER_NAME = "developer_name";
+    static final String DEVELOPER_EMAIL = "developer_email";
+
+
 }

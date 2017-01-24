@@ -4,7 +4,7 @@ apply plugin: 'maven'
 apply plugin: 'com.jfrog.bintray'
 
 group = 'com.comsince.github'
-version = 1.0
+version = 1.1
 
 publishing {
     publications {
@@ -12,7 +12,7 @@ publishing {
             from components.java
             groupId 'com.comsince.github'
             artifactId 'publish-plugin'
-            version '1.0'
+            version '1.1'
         }
     }
 }
@@ -41,9 +41,9 @@ bintray {
         publicDownloadNumbers = true
         publish = true
         version {
-            name = '1.0'
+            name = '1.1'
             desc = 'Gradle Bintray Plugin 1.0 For Publish'
-            vcsTag = '1.0'
+            vcsTag = '1.1'
         }
     }
 }

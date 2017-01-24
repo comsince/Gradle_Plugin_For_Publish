@@ -9,6 +9,7 @@
 
 * [三 示例工程](#demo) 
 * [四 注意事项](#notifications)
+* [五 同步更新到MavenCentral](#sync_maven_central)
 
 # 一 插件配置<a name="library_setting_init"/>
 
@@ -98,7 +99,12 @@ local.properties文件应该在.gitignore中屏蔽掉, 此文件仅用于本地�
 + `bintray.repo=` #  你创建的bintray repo名称
 + `bintray.name=` 你所要发布的库的名称
 + `bintray.userOrg=`  新版的jcenter,需要提供你创建的组织名称，不然无法上传成功 
-+  `bintray.vcsUrl=`  你开源的项目地址
++ `bintray.vcsUrl=`  你开源的项目地址
+
++ `bintray.gpg.password` [详情参看](https://github.com/bintray/gradle-bintray-plugin#buildgradle)
+
++ `oss_user`
++ `oss_password`  如果要同步到MavenCentral,需要到这里[申请](https://issues.sonatype.org/secure/Dashboard.jspa)账户
 
 
 ## 三 示例工程<a name="demo"/>
@@ -132,5 +138,20 @@ local.properties文件应该在.gitignore中屏蔽掉, 此文件仅用于本地�
     
 ## [更新日志](CHANGELOG.md)
 
-# 参考文档
-* [如何发布library](https://inthecheesefactory.com/blog/how-to-upload-library-to-jcenter-maven-central-as-dependency/en)
+# 四 参考文档
+* [同步发布到Maven Central的注意事项](http://central.sonatype.org/pages/requirements.html)
+* [Publish AAR to jCenter and Maven Central](https://gist.github.com/lopspower/6f62fe1492726d848d6d)
+
+# 五 同步更新到MavenCentral
+  插件支持自动同步到MavenCentral，需要你按照如下步骤操作
+* [sonatype.org](https://issues.sonatype.org/secure/Dashboard.jspa)注册账户
+* 新建一个MavenCentral的issue,大概要等待一周的审核时间
+* GPG 公钥和私钥申请配置
+   * [GPG入门教程](http://www.ruanyifeng.com/blog/2013/07/gpg.html)
+   * [GPG 使用说明](http://central.sonatype.org/pages/working-with-pgp-signatures.html)
+* [Jcenter MavenCentral同步配置](https://inthecheesefactory.com/blog/how-to-upload-library-to-jcenter-maven-central-as-dependency/en)
+
+* local.properties 配置相关的信息如下:
+    + `bintray.gpg.password` [详情参看](https://github.com/bintray/gradle-bintray-plugin#buildgradle)
+    + `oss_user`
+    + `oss_password`  如果要同步到MavenCentral,需要到这里[申请](https://issues.sonatype.org/secure/Dashboard.jspa)账户

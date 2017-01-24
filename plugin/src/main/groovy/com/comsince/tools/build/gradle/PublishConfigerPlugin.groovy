@@ -141,6 +141,34 @@ class PublishConfigerPlugin extends BasePlugin {
                     from "${project.buildDir}${File.separator}outputs${File.separator}aar${File.separator}${project.getName()}-release.aar"
                 }
             }
+
+            // Create the pom configuration:
+            def pomConfig = {
+
+                // Add your description here
+                name libGroup+":"+libId+":"+libVersion // TODO
+                url propLocal(BINTRAY_VCS_URL)
+
+                licenses {
+                    license {
+                        name "The Apache Software License, Version 2.0"
+                        url "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                    }
+                }
+                developers {
+                    developer {
+                        id propLocal(DEVELOPER_ID)
+                        name propLocal(DEVELOPER_NAME)
+                        email propLocal(DEVELOPER_EMAIL)
+                    }
+                }
+
+                scm {
+                    connection propLocal(BINTRAY_VCS_URL)
+                    developerConnection propLocal(BINTRAY_VCS_URL)
+                    url propLocal(BINTRAY_VCS_URL)
+                }
+            }
             
             project.publishing {
                 publications {
@@ -150,6 +178,7 @@ class PublishConfigerPlugin extends BasePlugin {
                         artifactId libId
                         pom.withXml {
                             asNode().appendNode('description', "use compile \"$groupId:$artifactId:$version\" to depend on this library.")
+                            asNode().children().last() + pomConfig
                             def depNodes = asNode().appendNode('dependencies')
                             project.configurations.findAll { 
                                 'compile' == it.name || 'releaseCompile' == it.name || "${currentFlavor}Compile" == it.name
@@ -228,6 +257,24 @@ class PublishConfigerPlugin extends BasePlugin {
                     publish = true
                     version {
                         name = libVersion
+                        if(propLocal(BINTRAY_GPG_PASSWORD)){
+                            gpg {
+                                sign = true //Determines whether to GPG sign the files. The default is false
+                                passphrase = propLocal(BINTRAY_GPG_PASSWORD)
+                                //Optional. The passphrase for GPG signing'
+                            }
+                        }
+
+                        if(propLocal(OSS_USER) && propLocal(OSS_PASSWORD)){
+                            //Optional configuration for Maven Central sync of the version
+                            mavenCentralSync {
+                                sync = true //[Default: true] Determines whether to sync the version to Maven Central.
+                                user = propLocal(OSS_USER) //OSS user token: mandatory
+                                password = propLocal(OSS_PASSWORD) //OSS user password: mandatory
+                                close = '1' //Optional property. By default the staging repository is closed and artifacts are released to Maven Central. You can optionally turn this behaviour off (by puting 0 as value) and release the version manually.
+                            }
+                        }
+
                     }
                 }
             }
