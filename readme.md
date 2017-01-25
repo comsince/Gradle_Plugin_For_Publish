@@ -114,16 +114,19 @@ local.properties文件应该在.gitignore中屏蔽掉, 此文件仅用于本地�
 * 对于超大型应用, lintVital时OOM, 请按如下配置  
     gradle.properties 中开启   
     
-    ````groovy
-    org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
+```groovy
+    org.gradle.jvmargs=-Xmx2048m 
+    -XX:MaxPermSize=512m 
+    -XX:+HeapDumpOnOutOfMemoryError 
+    -Dfile.encoding=UTF-8
     org.gradle.parallel=true   
-    ````
+```    
     
 * 对于引用了很多模块的超大型应用, dex时OOM, 请按如下配置
 
     build.gradle中
     
-    ````groovy
+```groovy
     android {
         dexOptions {
             jumboMode true
@@ -132,7 +135,7 @@ local.properties文件应该在.gitignore中屏蔽掉, 此文件仅用于本地�
             javaMaxHeapSize "4g"
         }
     }
-    ```` 
+```     
     
 ## [更新日志](CHANGELOG.md)
 
@@ -167,27 +170,27 @@ local.properties文件应该在.gitignore中屏蔽掉, 此文件仅用于本地�
 * local.properties 配置模板
 
 ```
-#  你的bintray 用户名
-bintray.user=
-#  你的bintray api key          
-bintray.apikey=        
-#  你创建的bintray repo名称
-bintray.repo=          
-#  你所要发布的库的名称
-bintray.name=  
-# 你的开源项目地址
-bintray.vcsUrl=
-#  新版的jcenter,需要提供你创建的组织名称，不然无法上传成功
-bintray.userOrg=       
-#  [详情参看](https://github.com/bintray/gradle-bintray-plugin#buildgradle)
-bintray.gpg.password = 
-#  oss账户名
-oss_user=   
-#  如果要同步到MavenCentral,需要到这里[申请](https://issues.sonatype.org/secure/Dashboard.jspa)账户
-oss_password=
-          
-# 同步到MavenCentral必须配置
-developer_id = 
-developer_name=
-developer_email=
+    #  你的bintray 用户名
+    bintray.user=
+    #  你的bintray api key          
+    bintray.apikey=        
+    #  你创建的bintray repo名称
+    bintray.repo=          
+    #  你所要发布的库的名称
+    bintray.name=  
+    # 你的开源项目地址
+    bintray.vcsUrl=
+    #  新版的jcenter,需要提供你创建的组织名称，不然无法上传成功
+    bintray.userOrg=       
+    #  [详情参看](https://github.com/bintray/gradle-bintray-plugin#buildgradle)
+    bintray.gpg.password = 
+    #  oss账户名
+    oss_user=   
+    #  如果要同步到MavenCentral,需要到这里[申请](https://issues.sonatype.org/secure/Dashboard.jspa)账户
+    oss_password=
+              
+    # 同步到MavenCentral必须配置
+    developer_id = 
+    developer_name=
+    developer_email=
 ```
