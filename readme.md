@@ -141,6 +141,7 @@ local.properties文件应该在.gitignore中屏蔽掉, 此文件仅用于本地�
 # 四 参考文档
 * [同步发布到Maven Central的注意事项](http://central.sonatype.org/pages/requirements.html)
 * [Publish AAR to jCenter and Maven Central](https://gist.github.com/lopspower/6f62fe1492726d848d6d)
+* [BinTray Plugin](https://github.com/bintray/gradle-bintray-plugin)
 
 # 五 同步更新到MavenCentral
 **NOTE:**插件支持自动同步到MavenCentral，需要你按照如下步骤操作
@@ -163,3 +164,32 @@ local.properties文件应该在.gitignore中屏蔽掉, 此文件仅用于本地�
     + `bintray.gpg.password` [详情参看](https://github.com/bintray/gradle-bintray-plugin#buildgradle)
     + `oss_user`
     + `oss_password`  如果要同步到MavenCentral,需要到这里[申请](https://issues.sonatype.org/secure/Dashboard.jspa)账户
+    
+    
+* local.properties 配置模板
+
+```
+#  你的bintray 用户名
+bintray.user=
+#  你的bintray api key          
+bintray.apikey=        
+#  你创建的bintray repo名称
+bintray.repo=          
+#  你所要发布的库的名称
+bintray.name=  
+# 你的开源项目地址
+bintray.vcsUrl=
+#  新版的jcenter,需要提供你创建的组织名称，不然无法上传成功
+bintray.userOrg=       
+#  [详情参看](https://github.com/bintray/gradle-bintray-plugin#buildgradle)
+bintray.gpg.password = 
+#  oss账户名
+oss_user=   
+#  如果要同步到MavenCentral,需要到这里[申请](https://issues.sonatype.org/secure/Dashboard.jspa)账户
+oss_password=
+          
+# 同步到MavenCentral必须配置
+developer_id = 
+developer_name=
+developer_email=
+```

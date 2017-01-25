@@ -7,9 +7,15 @@ buildscript {
             bintray_user = localProp.get("bintray.user")
             bintray_apikey = localProp.get("bintray.apikey")
             bintray_repo = localProp.get("bintray.repo")
-            bintray_packageName = localProp.get("bintray.packageName")
+            bintray_name = localProp.get("bintray.name")
             bintray_userOrg = localProp.get("bintray.userOrg")
-
+            bintray_vcsUrl = localProp.get("bintray.vcsUrl")
+            bintray_gpgPassword = localProp.get("bintray.gpg.password")
+            bintray_developerId = localProp.get("developer_id")
+            bintray_developerName = localProp.get("developer_name")
+            bintray_developerEmail = localProp.get("developer_email")
+            oss_user = localProp.get("oss_user")
+            oss_password = localProp.get("oss_password")
         }
     }
     repositories {

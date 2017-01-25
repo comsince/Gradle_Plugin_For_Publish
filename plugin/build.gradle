@@ -3,16 +3,68 @@ apply plugin: 'maven-publish'
 apply plugin: 'maven'
 apply plugin: 'com.jfrog.bintray'
 
-group = 'com.comsince.github'
-version = 1.1
+group = 'com.github.comsince'
+version = 1.2
+
+
+// Create the pom configuration:
+def pomConfig = {
+
+    licenses {
+        license {
+            name "The Apache Software License, Version 2.0"
+            url "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+    }
+    developers {
+        developer {
+            id "${bintray_developerId}"
+            name "${bintray_developerName}"
+            email "${bintray_developerEmail}"
+        }
+    }
+
+    scm {
+        connection "${bintray_vcsUrl}"
+        developerConnection "${bintray_vcsUrl}"
+        url "${bintray_vcsUrl}"
+    }
+}
+
+def javaApiUrl = 'http://docs.oracle.com/javase/1.7.0/docs/api/'
+def groovyApiUrl = 'http://groovy.codehaus.org/gapi/'
+tasks.withType(Javadoc) {
+    options.links(javaApiUrl, groovyApiUrl)
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from 'build/docs/javadoc'
+}
+
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+
+
 
 publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
-            groupId 'com.comsince.github'
+            groupId 'com.github.comsince'
             artifactId 'publish-plugin'
-            version '1.1'
+            version '1.2'
+            pom.withXml {
+                def root = asNode()
+                root.appendNode('description', 'gradle plugin for publish to jcenter and MavenCentral')
+                root.appendNode('name', 'publish-plugin')
+                root.appendNode('url', "${bintray_vcsUrl}")
+                root.children().last() + pomConfig
+            }
+            artifact javadocJar
+            artifact sourcesJar
         }
     }
 }
@@ -33,7 +85,7 @@ bintray {
     publications = ['mavenJava']
     pkg {
         repo = "${bintray_repo}"
-        name = "${bintray_packageName}"
+        name = "${bintray_name}"
         userOrg = "${bintray_userOrg}"
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/comsince/Gradle_Plugin_For_Publish.git'
@@ -41,9 +93,20 @@ bintray {
         publicDownloadNumbers = true
         publish = true
         version {
-            name = '1.1'
+            name = '1.2'
             desc = 'Gradle Bintray Plugin 1.0 For Publish'
-            vcsTag = '1.1'
+            vcsTag = '1.2'
+            gpg {
+                sign = true //Determines whether to GPG sign the files. The default is false
+                passphrase = "${bintray_gpgPassword}"
+                //Optional. The passphrase for GPG signing'
+            }
+            mavenCentralSync {
+                sync = true //[Default: true] Determines whether to sync the version to Maven Central.
+                user =  "${oss_user}"//OSS user token: mandatory
+                password = "${oss_password}" //OSS user password: mandatory
+                close = '1' //Optional property. By default the staging repository is closed and artifacts are released to Maven Central. You can optionally turn this behaviour off (by puting 0 as value) and release the version manually.
+            }
         }
     }
 }
