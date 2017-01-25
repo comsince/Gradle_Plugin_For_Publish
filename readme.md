@@ -100,9 +100,7 @@ local.properties文件应该在.gitignore中屏蔽掉, 此文件仅用于本地�
 + `bintray.name=` 你所要发布的库的名称
 + `bintray.userOrg=`  新版的jcenter,需要提供你创建的组织名称，不然无法上传成功 
 + `bintray.vcsUrl=`  你开源的项目地址
-
 + `bintray.gpg.password` [详情参看](https://github.com/bintray/gradle-bintray-plugin#buildgradle)
-
 + `oss_user`
 + `oss_password`  如果要同步到MavenCentral,需要到这里[申请](https://issues.sonatype.org/secure/Dashboard.jspa)账户
 
