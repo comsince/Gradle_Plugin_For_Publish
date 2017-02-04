@@ -6,7 +6,6 @@
       * [1.2.1 local.properties文件中配置jCenter基本信息](#jcenter_account_setting)
       * [1.2.2 gradle.properties 文件中配置发布信息](#jcenter_group_setting)
 * [二 Gradle参数说明](#gradle_setting_describe)
-
 * [三 示例工程](#demo) 
 * [四 注意事项](#notifications)
 * [五 同步更新到MavenCentral](#sync_maven_central)
