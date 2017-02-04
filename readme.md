@@ -74,6 +74,9 @@ Library开发者发布的时候, 可以在 工程里面修改以上数据, 也�
 + `artifactory.url= ` # 需要上传的artifactory的url,默认为http://oss.jfrog.org/artifactory
 + `artifactory.repo.key=` # artifactory repo 名称，默认为libs-release-local
 
++ `artifactory.user=` # artifactory 用户名
++ `artifactory.password=` artifactory 密码
+
 此时通过 Android Studio 图形面板, 或者gradle命令
 
 ````
