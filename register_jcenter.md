@@ -1,5 +1,7 @@
 # Jcenter注册申请步骤
+
 ## 一.注册
+
 * 打开如下网址[注册](https://bintray.com/signup)
 
 ![image](res/register.png)
