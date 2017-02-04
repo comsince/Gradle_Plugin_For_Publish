@@ -29,6 +29,9 @@ class Constants {
     static final String ARTIFACTORY_USER = 'artifactory.user'
     static final String ARTIFACTORY_PASSWORD = 'artifactory.password'
 
+    static final String ARTIFACTORY_URL = "artifactory.url"
+    static final String ARTIFACTORY_REPO_KEY = "artifactory.repo.key"
+
     // binary setting
     static final String BINTRAY_USER = 'bintray.user';
     static final String BINTRAY_API_KEY = 'bintray.apikey';

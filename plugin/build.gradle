@@ -3,7 +3,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'maven'
 apply plugin: 'com.jfrog.bintray'
 
-def pluginVersion = 1.3
+def pluginVersion = 1.4
 
 group = 'com.github.comsince'
 version = pluginVersion
@@ -33,11 +33,11 @@ def pomConfig = {
     }
 }
 
-def javaApiUrl = 'http://docs.oracle.com/javase/1.7.0/docs/api/'
+/*def javaApiUrl = 'http://docs.oracle.com/javase/1.7.0/docs/api/'
 def groovyApiUrl = 'http://groovy.codehaus.org/gapi/'
 tasks.withType(Javadoc) {
     options.links(javaApiUrl, groovyApiUrl)
-}
+}*/
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'

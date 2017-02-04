@@ -5,6 +5,7 @@
     * [1.2 JCenter支持](#jcenter_setting)
       * [1.2.1 local.properties文件中配置jCenter基本信息](#jcenter_account_setting)
       * [1.2.2 gradle.properties 文件中配置发布信息](#jcenter_group_setting)
+    * [1.3 Artifactory支持](#artifactory_setting)  
 * [二 Gradle参数说明](#gradle_setting_describe)
 * [三 示例工程](#demo) 
 * [四 注意事项](#notifications)
@@ -65,6 +66,13 @@ Library开发者发布的时候, 可以在 工程里面修改以上数据, 也�
 *默认的 artifactId 是library工程的 项目名*
 *默认的 version 是library工程的 versionName*  
 
+
+## 1.3 Artifactory支持<a name="artifactory_setting"/>
+
+如果你自己搭建了Actifactory,需要配置一下内容：
+
++ `artifactory.url= ` # 需要上传的artifactory的url,默认为http://oss.jfrog.org/artifactory
++ `artifactory.repo.key=` # artifactory repo 名称，默认为libs-release-local
 
 此时通过 Android Studio 图形面板, 或者gradle命令
 
