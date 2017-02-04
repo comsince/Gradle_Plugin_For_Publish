@@ -15,6 +15,8 @@ class PublishConfigerPlugin extends BasePlugin {
 
     @Override
     protected void configLibrary(Project project) {
+        String artifactoryUser = prop(ARTIFACTORY_USER) ?: propLocal(ARTIFACTORY_USER)
+        String artifactoryPassword = prop(ARTIFACTORY_PASSWORD) ?: propLocal(ARTIFACTORY_PASSWORD)
         String usr = prop(BINTRAY_USER) ?: propLocal(BINTRAY_USER)
         String psw = prop(BINTRAY_API_KEY) ?: propLocal(BINTRAY_API_KEY)
         if (!usr || !psw) {
@@ -226,8 +228,8 @@ class PublishConfigerPlugin extends BasePlugin {
                         // The Artifactory repository key to publish to
                         repoKey = 'libs-release-local'
 
-                        username = usr
-                        password = psw
+                        username = artifactoryUser
+                        password = artifactoryPassword
                     }
                     defaults {
                         // Tell the Artifactory Plugin which artifacts should be published to Artifactory.
