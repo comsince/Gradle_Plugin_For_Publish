@@ -21,7 +21,7 @@ class PublishConfigerPlugin extends BasePlugin {
         String psw = prop(BINTRAY_API_KEY) ?: propLocal(BINTRAY_API_KEY)
         if (!usr || !psw) {
             def err = """\
-                |* Set your bintray user name and apikey inside
+                |*Support bintray Upload Set your bintray user name and apikey inside
                 |*     local.properties
                 |* Eg:
                 |*     bintray.user=
@@ -31,7 +31,7 @@ class PublishConfigerPlugin extends BasePlugin {
                 |*
                 """.stripMargin()
 
-            throw new GradleException(err);
+            logger.error err
         }
 
         def mass = [:]

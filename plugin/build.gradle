@@ -3,7 +3,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'maven'
 apply plugin: 'com.jfrog.bintray'
 
-def pluginVersion = 1.4
+def pluginVersion = 1.5
 
 group = 'com.github.comsince'
 version = pluginVersion
