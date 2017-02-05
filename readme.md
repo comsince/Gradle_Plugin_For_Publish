@@ -5,7 +5,8 @@
     * [1.2 JCenter支持](#jcenter_setting)
       * [1.2.1 local.properties文件中配置jCenter基本信息](#jcenter_account_setting)
       * [1.2.2 gradle.properties 文件中配置发布信息](#jcenter_group_setting)
-    * [1.3 Artifactory支持](#artifactory_setting)  
+    * [1.3 Artifactory支持](#artifactory_setting)
+    * [1.4 上传指令](#upload_order)
 * [二 Gradle参数说明](#gradle_setting_describe)
 * [三 示例工程](#demo) 
 * [四 注意事项](#notifications)
@@ -24,7 +25,6 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:1.3.1"
         classpath "com.github.comsince:publish-plugin:1.+"
-        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.4"
     }
 }
 
@@ -79,9 +79,19 @@ Library开发者发布的时候, 可以在 工程里面修改以上数据, 也�
 
 此时通过 Android Studio 图形面板, 或者gradle命令
 
-````
+## 1.4 上传指令<a name="upload_order"/>
+
+* bintray 上传命令
+
+```
 ./gradlew bintrayUpload
-````
+```
+
+* artifactory 上传命令
+
+```
+./gradlew artifactoryPublish
+```
 
 
 # 二 Gradle参数说明<a name="gradle_setting_describe"/>
