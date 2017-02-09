@@ -5,7 +5,7 @@ apply plugin: 'com.jfrog.bintray'
 
 def pluginVersion = 1.6
 
-group = 'com.github.comsince'
+group = /*'com.github.comsince'*/'com.meizu.flyme.internet'
 version = pluginVersion
 
 
@@ -55,7 +55,7 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
-            groupId 'com.github.comsince'
+            groupId /*'com.github.comsince'*/'com.meizu.flyme.internet'
             artifactId 'publish-plugin'
             version pluginVersion
             pom.withXml {

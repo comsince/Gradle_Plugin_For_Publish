@@ -24,7 +24,7 @@ buildscript {
     
     dependencies {
         classpath "com.android.tools.build:gradle:1.3.1"
-        classpath "com.github.comsince:publish-plugin:1.+"
+        classpath "com.meizu.flyme.internet:publish-plugin:1.+"
     }
 }
 

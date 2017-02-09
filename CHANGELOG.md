@@ -1,5 +1,5 @@
 ##[2017-02-04]V1.6
-* 简化插件配置
+* 简化插件配置[同一个groupId,不同artifact需要建立不同的jcenter package 然后在单独申请加入jcenter]
 
 ## [2017-02-04]V1.4
 * artifactory支持详细配置
