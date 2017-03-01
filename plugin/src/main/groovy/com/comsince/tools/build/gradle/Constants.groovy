@@ -21,6 +21,9 @@ class Constants {
     static final String CLASSIFIER_SOURCES = 'sources'
     static final String CLASSIFIER_AAR = 'aar'
 
+    // 是否发布此版本到jcenter
+    static final String LIB_PUBLISH = "libPublish"
+
     static final List<String> DEFAULT_DISTRIBUTIONS = [CLASSIFIER_JAR, CLASSIFIER_JAVADOC, CLASSIFIER_SOURCES, CLASSIFIER_AAR]
 
     // local.properties

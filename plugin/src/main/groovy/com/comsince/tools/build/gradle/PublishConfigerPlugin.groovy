@@ -220,7 +220,6 @@ class PublishConfigerPlugin extends BasePlugin {
 
                 }
             }
-            
             project.artifactory {
                 String artUrl = propLocal(ARTIFACTORY_URL) ?: 'http://oss.jfrog.org/artifactory'
                 String artRepoKey = propLocal(ARTIFACTORY_REPO_KEY) ?: 'libs-release-local'
@@ -248,10 +247,18 @@ class PublishConfigerPlugin extends BasePlugin {
             }
 
 
+            boolean libPublish = false;
+            if(prop(LIB_PUBLISH)){
+                String lib_publish = prop(LIB_PUBLISH);
+                libPublish = "true".equalsIgnoreCase(lib_publish);
+            }
+            logger.quiet "libPublish ${libPublish}"
+
             project.bintray {
                 user = propLocal(BINTRAY_USER)
                 key = propLocal(BINTRAY_API_KEY)
                 publications = ['all']
+                publish = libPublish
                 pkg {
                     repo = propLocal(BINTRAY_REPO)
                     name = propLocal(BINTRAY_NAME)
@@ -259,7 +266,6 @@ class PublishConfigerPlugin extends BasePlugin {
                     licenses = ['Apache-2.0']
                     vcsUrl = propLocal(BINTRAY_VCS_URL)
                     publicDownloadNumbers = true
-                    publish = true
                     version {
                         name = libVersion
                         if(propLocal(BINTRAY_GPG_PASSWORD)){

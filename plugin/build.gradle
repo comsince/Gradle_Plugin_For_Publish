@@ -3,7 +3,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'maven'
 apply plugin: 'com.jfrog.bintray'
 
-def pluginVersion = 1.6
+def pluginVersion = 1.7
 
 group = /*'com.github.comsince'*/'com.meizu.flyme.internet'
 version = pluginVersion
@@ -85,6 +85,7 @@ bintray {
     user = "${bintray_user}"
     key = "${bintray_apikey}"
     publications = ['mavenJava']
+    publish = true
     pkg {
         repo = "${bintray_repo}"
         name = "${bintray_name}"
@@ -93,7 +94,6 @@ bintray {
         vcsUrl = 'https://github.com/comsince/Gradle_Plugin_For_Publish.git'
         labels = ['gradle', 'jcenter', 'publish']
         publicDownloadNumbers = true
-        publish = true
         version {
             name = pluginVersion
             desc = 'Gradle Bintray Plugin For Publish'

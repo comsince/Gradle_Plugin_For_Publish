@@ -110,6 +110,8 @@ Library开发者发布的时候, 可以在 工程里面修改以上数据, 也�
 
     配置 aar的 版本号, 如果不配置, 默认使用 Library工程的 versionName  
     
++ `libPublish=false ` # 是否立即发布到jcenter仓库中    
+    
 **local.properties**: build.gradle同级目录下, 
 
 local.properties文件应该在.gitignore中屏蔽掉, 此文件仅用于本地开发
