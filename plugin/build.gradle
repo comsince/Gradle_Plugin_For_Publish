@@ -2,10 +2,11 @@ apply plugin: 'java'
 apply plugin: 'maven-publish'
 apply plugin: 'maven'
 apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.jfrog.artifactory'
 
-def pluginVersion = 1.7
+def pluginVersion = "1.8-SNAPSHOT"
 
-group = /*'com.github.comsince'*/'com.meizu.flyme.internet'
+group = 'com.github.comsince'/*'com.meizu.flyme.internet'*/
 version = pluginVersion
 
 
@@ -55,7 +56,7 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
-            groupId /*'com.github.comsince'*/'com.meizu.flyme.internet'
+            groupId /*'com.github.comsince'*//*'com.meizu.flyme.internet'*/group
             artifactId 'publish-plugin'
             version pluginVersion
             pom.withXml {
@@ -109,6 +110,33 @@ bintray {
                 password = "${oss_password}" //OSS user password: mandatory
                 close = '1' //Optional property. By default the staging repository is closed and artifacts are released to Maven Central. You can optionally turn this behaviour off (by puting 0 as value) and release the version manually.
             }
+        }
+    }
+}
+
+
+artifactory {
+    String artUrl = 'https://oss.jfrog.org/artifactory'
+    String artRepoKey = 'oss-snapshot-local'
+    logger.quiet "current artifactory url ${artUrl} repo key ${artRepoKey}"
+    contextUrl = artUrl
+    publish {
+        repository {
+            // The Artifactory repository key to publish to
+            repoKey = artRepoKey
+
+            username = "${bintray_user}"
+            password = "${bintray_apikey}"
+        }
+        defaults {
+            // Tell the Artifactory Plugin which artifacts should be published to Artifactory.
+            publications('mavenJava')
+            publishArtifacts = true
+
+            // Properties to be attached to the published artifacts.
+            properties = ['qa.level': 'basic', 'dev.team': 'core']
+            // Publish generated POM files to Artifactory (true by default)
+            publishPom = true
         }
     }
 }
