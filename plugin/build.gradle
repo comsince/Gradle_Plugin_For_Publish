@@ -6,7 +6,7 @@ apply plugin: 'com.jfrog.artifactory'
 
 def pluginVersion = "1.8-SNAPSHOT"
 
-group = 'com.github.comsince'/*'com.meizu.flyme.internet'*/
+group = /*'com.github.comsince'*/'com.meizu.flyme.internet'
 version = pluginVersion
 
 
