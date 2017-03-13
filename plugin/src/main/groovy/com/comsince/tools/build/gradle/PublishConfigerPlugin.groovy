@@ -171,13 +171,17 @@ class PublishConfigerPlugin extends BasePlugin {
                     url propLocal(BINTRAY_VCS_URL)
                 }
             }
+
+            //for maven publish set group and version for artifactory
+            project.group = libGroup
+            project.version = libVersion
             
             project.publishing {
                 publications {
                     all(MavenPublication) {
                         groupId libGroup
-                        version = libVersion
                         artifactId libId
+                        version libVersion
                         pom.withXml {
                             asNode().appendNode('description', "use compile \"$groupId:$artifactId:$version\" to depend on this library.")
                             asNode().children().last() + pomConfig
