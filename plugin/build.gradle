@@ -4,7 +4,7 @@ apply plugin: 'maven'
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.jfrog.artifactory'
 
-def pluginVersion = "1.8-SNAPSHOT"
+def pluginVersion = "1.9-SNAPSHOT"
 
 group = /*'com.github.comsince'*/'com.meizu.flyme.internet'
 version = pluginVersion

@@ -193,11 +193,20 @@ class PublishConfigerPlugin extends BasePlugin {
                                 it instanceof ExternalModuleDependency
                             }.each { dep -> 
                                 logger.quiet "* append dependency compile '${dep.group}:${dep.name}:${dep.version}' to pom"
+
                                 def depNode = depNodes.appendNode('dependency')
                                 depNode.appendNode('groupId', dep.getGroup())
                                 depNode.appendNode('artifactId', dep.getName())
                                 depNode.appendNode('version', dep.getVersion())
                                 depNode.appendNode('scope', 'compile')
+
+                                def defaultArtifacts = dep.getArtifacts()
+                                if (defaultArtifacts) {
+                                    defaultArtifacts.toSet().each{
+                                        artifact ->  logger.quiet "** dependency artifact ${artifact.getName()}: ${artifact.getType()}"
+                                        depNode.appendNode('type',artifact.getType())
+                                    }
+                                }
                             }
                         }
                         // Tell maven to prepare the generated "*.aar" file for publishing

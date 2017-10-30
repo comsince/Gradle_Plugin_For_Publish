@@ -14,7 +14,7 @@ buildscript {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
 
-        classpath "com.meizu.flyme.internet:publish-plugin:1.6"
+        classpath "com.meizu.flyme.internet:publish-plugin:1.9-SNAPSHOT"
         //classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.4"
         //classpath "org.jfrog.buildinfo:build-info-extractor-gradle:3.1.1"
     }
