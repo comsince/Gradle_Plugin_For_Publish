@@ -68,6 +68,8 @@ class PublishConfigerPlugin extends BasePlugin {
                     def androidJar = "${project.android.sdkDirectory}/platforms/${project.android.compileSdkVersion}/android.jar"
                     classpath = project.files(variant.javaCompile.classpath.files, androidJar)
                     options {
+                        charSet = 'UTF-8'
+                        encoding = 'UTF-8'
                         links "http://docs.oracle.com/javase/7/docs/api/"
                         linksOffline "http://d.android.com/reference", "${project.android.sdkDirectory}/docs/reference"
                     }
