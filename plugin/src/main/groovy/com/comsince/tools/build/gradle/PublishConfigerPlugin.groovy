@@ -234,8 +234,8 @@ class PublishConfigerPlugin extends BasePlugin {
                 }
             }
             project.artifactory {
-                String artUrl = propLocal(ARTIFACTORY_URL) ?: 'http://oss.jfrog.org/artifactory'
-                String artRepoKey = propLocal(ARTIFACTORY_REPO_KEY) ?: 'libs-release-local'
+                String artUrl = prop(ARTIFACTORY_URL) ?: 'http://oss.jfrog.org/artifactory'
+                String artRepoKey = prop(ARTIFACTORY_REPO_KEY) ?: 'oss-snapshot-local'
                 logger.quiet "current artifactory url ${artUrl} repo key ${artRepoKey}"
                 contextUrl = artUrl
                 publish {

@@ -219,3 +219,12 @@ local.properties文件应该在.gitignore中屏蔽掉, 此文件仅用于本地�
     developer_name=
     developer_email=
 ```
+
+* gradle.properties 配置模板
+
+```
+ # 需要上传的artifactory的url,默认为http://oss.jfrog.org/artifactory
+ artifactory.url=  
+ # artifactory repo 名称，默认为oss-snapshot-local
+ artifactory.repo.key= 
+```
