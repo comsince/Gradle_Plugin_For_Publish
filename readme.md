@@ -228,3 +228,5 @@ local.properties文件应该在.gitignore中屏蔽掉, 此文件仅用于本地�
  # artifactory repo 名称，默认为oss-snapshot-local
  artifactory.repo.key= 
 ```
+
+* [如何发布Jar包到Maven Central Repository](https://cloud.tencent.com/developer/article/1188461)
